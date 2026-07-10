@@ -16,7 +16,7 @@
 - **First write (gotcha memory):** `blob_id` = `MPTZNNKlU1ABG4UQ2H_nAPUkYzN-ARd0RzANHSV9q94`
 - **Explorer:** https://walruscan.com/mainnet/blob/MPTZNNKlU1ABG4UQ2H_nAPUkYzN-ARd0RzANHSV9q94
 - **Recall confirmed:** same-session `memwal_recall` returned the exact blob content (score 0.658), proving the write/read round trip works on mainnet.
-- **Agent ID:** not separately issued by MemWal — identity is the delegate key tied to wallet `0x51f2...8879`; still need to check memory.walrus.xyz dashboard for a distinct account/agent ID field (open todo).
+- **Agent ID (MEMWAL_AGENT_ID):** `0b5c3d11251930b321bb34c49648bb2dde4bc99d4904e82144fe3f41e563e0bb` — confirmed via memory.walrus.xyz/dashboard "Delegate keys" section, "MCP Client" key created 7/9/2026, matches the publicKey used in the successful memwal_login attempt and the credentials currently active in ~/.memwal/credentials.json. This is the key behind all 16 blob writes. Note: a second orphaned "MCP Client" key (3e17ed839100...915f21e6) exists from a login attempt that succeeded on-chain but never synced credentials locally — see FEEDBACK_NOTES.md, recommend revoking it.
 - **Blob count:** 16 (confirmed via `memwal_restore`, 2026-07-09)
 - **All blob IDs (namespace `buildmem-hackathon`):**
   1. `MPTZNNKlU1ABG4UQ2H_nAPUkYzN-ARd0RzANHSV9q94` — gotcha: memwal_remember tool conflict
@@ -36,15 +36,15 @@
   15. `nOVbSRchSFRRkPsnCJw-oKXjxaWWBtF1E9n2bVYoAdA` — Tusk Form decision: planned intelligence features
   16. `TB-IRFFVMjYyU9NwvXF8SXuBD5r876qNn8d2jzsaLbQ` — Tusk Form feedback: hackathon-projects-start-with-people lesson
 
-**Note:** Tusk Form memories (11–16) are real product-vision content from the user, written for genuine recall-testing purposes. BuildMEM Agent (the persistent-memory system prompt in `CLAUDE.md`) remains the actual hackathon submission — Tusk Form is not itself the submission unless a future decision changes this.
+**Note:** Tusk Form memories (11–16) are real product-vision content from the user, written for genuine recall-testing purposes. BUILDMEM (the dev-memory system prompt in `CLAUDE.md`) remains the actual hackathon submission — Tusk Form is not itself the submission unless a future decision changes this.
 
-**Recall precision verified (2026-07-09):** Query "What do we know about Tusk Form?" returned all 6 Tusk Form memories ranked top (scores 0.37–0.51), correctly separated from 4 unrelated BuildMEM setup memories scoring lower (≤0.20) in the same namespace. Query "did we decide Walrus should be visible or invisible to users?" correctly top-matched the exact relevant decision (score 0.573) with no cross-project confusion.
+**Recall precision verified (2026-07-09):** Query "What do we know about Tusk Form?" returned all 6 Tusk Form memories ranked top (scores 0.37–0.51), correctly separated from 4 unrelated BUILDMEM memories scoring lower (≤0.20) in the same namespace. Query "did we decide Walrus should be visible or invisible to users?" correctly top-matched the exact relevant decision (score 0.573) with no cross-project confusion.
 
 ## Full Prompt Text
 - See `CLAUDE.md` in project root (BuildMEM Agent system prompt).
 
 ## 2-5 Sentence Explanation (draft)
-Founders and hackers building real projects lose the same hours over and over re-solving deploy failures, product decisions, and technical gotchas, because chat context dies with every session. BuildMEM Agent gives the agent a strict memory schema, five write triggers, and four recall triggers, persisted as Walrus Mainnet blobs — producing visible behavior change across fresh sessions. It works the same whether you're shipping a hackathon prototype (see the BuildMEM setup history in this namespace) or building a real product (see the Tusk Form decision history in the same namespace) — the schema doesn't care what you're building, only that decisions and lessons stop disappearing.
+Founders and hackers building real projects lose the same hours over and over re-solving deploy failures, product decisions, and technical gotchas, because chat context dies with every session. BuildMEM Agent gives the agent a strict memory schema, five write triggers, and four recall triggers, persisted as Walrus Mainnet blobs — producing visible behavior change across fresh sessions. It works the same whether you're shipping a hackathon prototype (see the BuildMEM setup history in this namespace) or building a real product (see the Tusk Form decision history in the same namespace) — the schema doesn't care what you're building, only that decisions and lessons stop disappearing. The prompt itself is fully portable: it contains no hardcoded wallet, namespace, or project-specific data, so anyone can copy `CLAUDE.md` into their own project and get the same behavior with their own MemWal login.
 
 ## Demo Video Link
 - _Placeholder — upload to Walrus and link here._
@@ -52,18 +52,3 @@ Founders and hackers building real projects lose the same hours over and over re
 ## GitHub Issues Filed
 - _Placeholder — derive from FEEDBACK_NOTES.md entries once repo is public._
 
-## Official Requirements (from Event Rules, retrieved 2026-07-09)
-- [x] **10+ blobs on Mainnet at submission time** — `memwal_restore` confirms `total=10` in namespace `buildmem-hackathon` as of 2026-07-09. All genuine: 1 session summary, 2 real technical gotchas (tool/docs conflicts discovered during setup), 1 count-mismatch investigation gotcha, 5 true project facts (via memwal_analyze), 1 schema-consistency decision. Verify independently: https://walruscan.com/mainnet/blob/WAe_Y_FkPEi9IAE5Ghz3pqWRyBDzMTn2tyAuS3bHXKI (most recent) and other blob_ids listed below.
-- [ ] **Agent ID + blob count as proof** — MemWal has no separately-issued agent ID found so far; check the memory.walrus.xyz dashboard after logging in with the Sessions wallet to see if one is assigned (e.g. account ID field). Log finding in FEEDBACK_NOTES.md either way.
-- [ ] DeepSurge registration (project name, prompt description, primary contact, GitHub account, optional referrer Discord handle)
-- [ ] walform.wal.app/f?formId=0x308876d0... submission form
-- [ ] Demo video (≤3 min), uploaded to Walrus, showing the prompt working in practice
-- [ ] Walrus Memory feedback form + GitHub issues filed at github.com/MystenLabs/MemWal (derive from FEEDBACK_NOTES.md — also eligible for the $300 WAL Best Feedback pool)
-- [ ] Join Walrus Discord: discord.com/invite/walrusprotocol
-- [ ] Post demo video/screenshot with #Walrus on X
-- [ ] Confirm dedicated Sessions wallet has no activity outside this hackathon
-
-## Judging Criteria (for self-check before submitting)
-1. Real problem, clearly described — not just technically impressive
-2. Well-crafted prompt — clear rules on what/when/how to write, thoughtful memory use (not just occasional memwal_remember calls)
-3. Proof it works — Mainnet writes, demo shows it functioning, consistent meaningful blobs > a handful
