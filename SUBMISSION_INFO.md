@@ -18,6 +18,7 @@
 - **Recall confirmed:** same-session `memwal_recall` returned the exact blob content (score 0.658), proving the write/read round trip works on mainnet.
 - **Agent ID (MEMWAL_AGENT_ID):** `0b5c3d11251930b321bb34c49648bb2dde4bc99d4904e82144fe3f41e563e0bb` — confirmed via memory.walrus.xyz/dashboard "Delegate keys" section, "MCP Client" key created 7/9/2026, matches the publicKey used in the successful memwal_login attempt and the credentials currently active in ~/.memwal/credentials.json. This is the key behind all 16 blob writes. Note: a second orphaned "MCP Client" key (3e17ed839100...915f21e6) exists from a login attempt that succeeded on-chain but never synced credentials locally — see FEEDBACK_NOTES.md, recommend revoking it.
 - **Blob count:** 16 (confirmed via `memwal_restore`, 2026-07-09)
+- **MemWalAccount object:** `0xf66586845ee9f65cabdc5a16ef2d5e4189703925e0cb2b2eb179b7f43ac14cdc` (type `0xcee7...24c6::account::MemWalAccount`, a Shared object referencing wallet `0x51f2...8879` as owner field). Explorer: https://suivision.xyz/object/0xf66586845ee9f65cabdc5a16ef2d5e4189703925e0cb2b2eb179b7f43ac14cdc
 - **All blob IDs (namespace `buildmem-hackathon`):**
   1. `MPTZNNKlU1ABG4UQ2H_nAPUkYzN-ARd0RzANHSV9q94` — gotcha: memwal_remember tool conflict
   2. `RVYuLLHQ0UDlWsl4oa4GAboRNCNgu6pezZrPOljxexM` — session summary 2026-07-09
