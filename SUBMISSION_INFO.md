@@ -52,5 +52,11 @@ Founders and hackers building real projects lose the same hours over and over re
 - _Placeholder — upload to Walrus and link here._
 
 ## GitHub Issues Filed
-- _Placeholder — derive from FEEDBACK_NOTES.md entries once repo is public._
+All 6 filed 2026-07-10 at github.com/MystenLabs/MemWal, eligible for the $300 WAL Best Feedback pool:
+- docs.wal.app returns 403 to automated/non-browser fetches — https://github.com/MystenLabs/MemWal/issues/379
+- Setup guide conflates the --prod flag with the login subcommand — https://github.com/MystenLabs/MemWal/issues/380
+- memwal_remember tool description conflicts with proactive-memory agent use cases — https://github.com/MystenLabs/MemWal/issues/381
+- memwal_restore total count exceeds what memwal_recall can enumerate — https://github.com/MystenLabs/MemWal/issues/382
+- MemWalAccount object (Shared) is undiscoverable via normal wallet explorer views — https://github.com/MystenLabs/MemWal/issues/383
+- Login attempts that appear to fail client-side can silently succeed on-chain, leaving orphaned paid delegate keys — https://github.com/MystenLabs/MemWal/issues/384
 
