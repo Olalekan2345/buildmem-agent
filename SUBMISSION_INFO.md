@@ -13,7 +13,7 @@
 - **Namespace:** `buildmem-hackathon`
 
 ## On-Chain Verification
-- **Blob count:** 16 (confirmed via `memwal_restore`)
+- **Blob count:** 22 (confirmed via `memwal_restore`, 2026-07-11 — grew from 16 via separate sessions not tracked in this file's history, including real Tusk Form decisions finalized independently)
 - **MEMWAL_AGENT_ID:** `0b5c3d11251930b321bb34c49648bb2dde4bc99d4904e82144fe3f41e563e0bb`
 - **MemWalAccount object:** `0xf66586845ee9f65cabdc5a16ef2d5e4189703925e0cb2b2eb179b7f43ac14cdc`
   Explorer: https://suivision.xyz/object/0xf66586845ee9f65cabdc5a16ef2d5e4189703925e0cb2b2eb179b7f43ac14cdc
